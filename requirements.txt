@@ -1,0 +1,22 @@
+After Installing WireGuard/OpenVPN Server. Change the server time accordingly to geographical location of where it is hosted to avoid packet losses.
+
+
+Ex:
+Debian 12 VPS hosted on Singapore. Change time via
+timedatectl set-timezone Asia/Singapore
+timedatectl set-ntp on
+
+After doing this, time should be synced automatically. Reboot the machine.
+
+Also put this in client config when you change server MTU to work as expected.
+
+Common Best MTUs ($mtu)
+1412
+1360
+
+clientconfig.conf
+[Interface]
+Address =
+DNS = 
+PrivateKey = 
+MTU = $mtu
